@@ -67,7 +67,7 @@ spec:
           terminationMessagePolicy: File
           envFrom:
             - secretRef:
-                name: aistor-credentials
+                name: minio-credentials
           image: 'quay.io/minio/aistor/minio:latest'
           args:
             - server
