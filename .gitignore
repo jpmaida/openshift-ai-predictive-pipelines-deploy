@@ -1,5 +1,3 @@
 .venv
-*.joblib
 data/*.csv
-results/*.csv
-src/__pycache__/
+pipelines/*.yaml
