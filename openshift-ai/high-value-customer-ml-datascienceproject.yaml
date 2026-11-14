@@ -1,0 +1,24 @@
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: high-value-customer-ml
+  labels:
+    kubernetes.io/metadata.name: high-value-customer-ml
+    opendatahub.io/dashboard: 'true'
+    openshift-pipelines.tekton.dev/namespace-reconcile-version: 1.24.3
+    openshift-pipelines.tekton.dev/namespace-trusted-configmaps-version: 1.24.3
+    pod-security.kubernetes.io/audit: baseline
+    pod-security.kubernetes.io/audit-version: latest
+    pod-security.kubernetes.io/warn: baseline
+    pod-security.kubernetes.io/warn-version: latest
+  annotations:
+    openshift.io/description: ''
+    openshift.io/display-name: high-value-customer-ml
+    openshift.io/requester: admin
+    openshift.io/sa.scc.mcs: 's0:c30,c20'
+    openshift.io/sa.scc.supplemental-groups: 1000910000/10000
+    openshift.io/sa.scc.uid-range: 1000910000/10000
+    security.openshift.io/MinimallySufficientPodSecurityStandard: baseline
+spec:
+  finalizers:
+    - kubernetes
