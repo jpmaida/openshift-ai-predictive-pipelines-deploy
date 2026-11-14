@@ -1,4 +1,3 @@
-
 from kfp import dsl, compiler, kubernetes
 
 
@@ -589,8 +588,10 @@ def high_value_customer_pipeline(
     s3_object_key: str = "datasets/online-retail.xlsx",
     reference_date: str = "2011-09-01",
     prediction_days: int = 90,
-    model_prefix: str = "models"
+    model_prefix: str = "models",
+    minio_secret_name: str = 'ml-artifacts'
 ):
+    import os
 
     features_task = feature_engineering(
         s3_endpoint=s3_endpoint,
@@ -611,7 +612,7 @@ def high_value_customer_pipeline(
     for task in [features_task, training_task]:
         kubernetes.use_secret_as_env(
             task,
-            secret_name="minio-s3-access",
+            secret_name=minio_secret_name,
             secret_key_to_env={
                 "AWS_ACCESS_KEY_ID": "AWS_ACCESS_KEY_ID",
                 "AWS_SECRET_ACCESS_KEY": "AWS_SECRET_ACCESS_KEY"
