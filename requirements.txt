@@ -1,2 +1,4 @@
 kfp
 kfp[kubernetes]
+streamlit
+python_dotenv
