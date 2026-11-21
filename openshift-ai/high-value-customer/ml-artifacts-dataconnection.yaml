@@ -13,8 +13,8 @@ metadata:
     openshift.io/display-name: ml-artifacts
 stringData:
   AWS_ACCESS_KEY_ID: ''
-  AWS_DEFAULT_REGION: ''
-  AWS_S3_BUCKET: ''
-  AWS_S3_ENDPOINT: ''
+  AWS_DEFAULT_REGION: 'ml-artifacts'
+  AWS_S3_BUCKET: 'ml-artifacts'
+  AWS_S3_ENDPOINT: 'http://aistor.aistor.svc.cluster.local:9000'
   AWS_SECRET_ACCESS_KEY: ''
 type: Opaque
