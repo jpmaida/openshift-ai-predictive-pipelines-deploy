@@ -1,0 +1,51 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    modelFormat: sklearn
+    security.opendatahub.io/enable-auth: 'false'
+    opendatahub.io/hardware-profile-resource-version: '35513'
+    openshift.io/description: ''
+    openshift.io/display-name: high-value-customer
+    serving.kserve.io/deploymentMode: Standard
+    opendatahub.io/hardware-profile-namespace: redhat-ods-applications
+    opendatahub.io/hardware-profile-name: default-profile
+    opendatahub.io/connection-path: models/best_model.joblib
+    opendatahub.io/connections: ml-artifacts
+    opendatahub.io/model-type: predictive
+  name: high-value-customer
+  namespace: high-value-customer-ml
+  finalizers:
+    - inferenceservice.finalizers
+    - odh.inferenceservice.finalizers
+  labels:
+    networking.kserve.io/visibility: exposed
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    automountServiceAccountToken: false
+    deploymentStrategy:
+      type: RollingUpdate
+    maxReplicas: 1
+    minReplicas: 1
+    model:
+      env:
+        - name: MLSERVER_MODEL_URI
+          value: /mnt/models/best_model.joblib
+      modelFormat:
+        name: sklearn
+        version: '1'
+      name: ''
+      resources:
+        limits:
+          cpu: '2'
+          memory: 4Gi
+        requests:
+          cpu: '2'
+          memory: 4Gi
+      runtime: high-value-customer
+      storage:
+        key: ml-artifacts
+        path: models/best_model.joblib
+    serviceAccountName: ml-artifacts-sa
+    timeout: 30
