@@ -108,9 +108,11 @@ ml-artifacts/datasets/online-retail.xlsx
 ```
 
 1. The `ml-artifacts` bucket
+
 ![ml-artifacts bucket](imgs/minio-bucket.png)
 
 2. The input dataset
+
 ![The input dataset used for training](imgs/minio-mlartifacts-dataset.png)
 
 The following MinIO documentation references provide additional installation and deployment information:
