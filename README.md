@@ -196,7 +196,7 @@ The command generates `pipelines/high-value-customer-training.yaml` in the `pipe
 In the OpenShift AI dashboard:
 
 1. Open the `high-value-customer-ml` project.
-2. Open the Data Science Pipelines section.
+2. Open the **Pipelines** section (tab).
 3. Import `pipelines/high-value-customer-training.yaml`.
 4. Set the pipeline name to `high-value-customer-training`.
 5. Add a clear description for the pipeline.
