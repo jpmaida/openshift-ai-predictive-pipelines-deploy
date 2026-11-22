@@ -85,6 +85,10 @@ oc get pods -w -n aistor
 
 Press `Ctrl+C` when the pod status is satisfactory and the pod is ready.
 
+This is the expected outcome. Use the credentials stored in the **secret-minio-aistor-credentials.yaml** file to login:
+
+![MinIO login page](imgs/minio-access.png)
+
 ### Configure the Local Environment
 
 Update the `MINIO_SVC` value in `.env` with the MinIO service address. For the manifests in this repository, the internal address is:
@@ -102,6 +106,12 @@ The training pipeline uses the following object key:
 ```text
 ml-artifacts/datasets/online-retail.xlsx
 ```
+
+1. The `ml-artifacts` bucket
+![ml-artifacts bucket](imgs/minio-bucket.png)
+
+2. The input dataset
+![The input dataset used for training](imgs/minio-mlartifacts-dataset.png)
 
 The following MinIO documentation references provide additional installation and deployment information:
 
