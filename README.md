@@ -2,6 +2,9 @@
 
 This laboratory demonstrates an end-to-end predictive machine learning workflow on Red Hat OpenShift AI. It covers object storage, pipeline execution, model training, model deployment, and prediction testing through a Streamlit application.
 
+> [!NOTE]
+> The dataset used for training and test was found in: https://archive.ics.uci.edu/dataset/352/online+retail
+
 The project uses:
 
 - Python 3.11
